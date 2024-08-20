@@ -33,3 +33,8 @@
     path: /etc/default/console-setup
     line: 'ACTIVE_CONSOLES=""'
     regexp: "^ACTIVE_CONSOLES.*"
+- name: Enable root login over SSH
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PermitRoot.*'
+    line: 'PermitRootLogin yes'
