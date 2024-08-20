@@ -28,3 +28,8 @@
     state: directory
     owner: "{{ kiosk_user }}"
     mode: 0750
+- name: Disable local consoles
+  ansible.builtin.lineinfile:
+    path: /etc/default/console-setup
+    line: 'ACTIVE_CONSOLES=""'
+    regexp: "^ACTIVE_CONSOLES.*"
