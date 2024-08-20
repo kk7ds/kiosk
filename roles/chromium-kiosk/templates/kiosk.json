@@ -1,0 +1,28 @@
+{"ShowHomeButton":true,
+ "BookmarkBarEnabled": false,
+ "BrowserAddPersonEnabled": false,
+ "BrowserGuestModeEnforced": true,
+ "BrowserLabsEnabled": false,
+ "BrowserSignin": false,
+ "ComponentUpdatesEnabled": false,
+ "DeveloperToolsAvailability": 2,
+ "NewTabPageLocation": "{{ kiosk_home_url }}",
+ "HomepageIsNewTabPage": false,
+ "PasswordManagerEnabled": false,
+ "EditBookmarksEnabled": false,
+ "DownloadRestrictions": 3,
+ "HomepageLocation": "{{ kiosk_home_url }}",
+ "URLAllowlist": [
+{% for allow in kiosk_allow_url %}
+    "{{ allow }}",
+{% endfor %}
+   "{{ kiosk_home_url }}",
+    "chrome://newtab"
+ ],
+ "URLBlocklist": [
+{% for block in kiosk_block_url %}
+    "{{ block }}",
+{% endfor %}
+   "chrome://*"
+ ]
+}

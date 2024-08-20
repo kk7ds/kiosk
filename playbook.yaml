@@ -1,0 +1,7 @@
+- hosts: kiosk
+  become: yes
+  become_method: sudo
+  roles:
+    - weston-kiosk
+    - chromium-kiosk
+    - lockdown

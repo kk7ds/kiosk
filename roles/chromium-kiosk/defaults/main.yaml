@@ -1,0 +1,5 @@
+kiosk_home_url: https://github.com/kk7ds/kiosk
+kiosk_allow_url:
+  - https://github.com/kk7ds
+kiosk_block_url:
+  - "*"

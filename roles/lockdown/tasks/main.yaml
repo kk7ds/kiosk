@@ -1,0 +1,15 @@
+- name: Get encrypted GRUB password
+  shell:
+    echo -e '{{ grub_passwd }}\n{{ grub_passwd }}' | grub-mkpasswd-pbkdf2 |tail -n 1 | sed 's/^.*is //'
+  register: grub_passwd_enc
+- name: Install GRUB security
+  template:
+    src: grub.cfg
+    dest: /etc/grub.d/000_password
+  notify: Update GRUB config
+- name: Disable bootloader menu
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    line: GRUB_TIMEOUT=0
+    regexp: "^GRUB_TIMEOUT"
+  notify: Update GRUB config

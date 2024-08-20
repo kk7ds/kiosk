@@ -1,0 +1,16 @@
+[Unit]
+Requires=system-weston.service
+After=system-weston.service
+After=network.target
+
+[Service]
+Environment=WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000
+ExecStart=/usr/bin/chromium --ozone-platform=wayland --start-maximized {{ kiosk_home_url }}
+Restart=always
+RestartSec=1
+StartLimitInterval=10
+User={{ kiosk_user }}
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+
+[Service]
+Type=simple
+StandardOutput=journal
+StandardError=journal
+ExecStart=/usr/bin/weston
+Environment=XDG_RUNTIME_DIR=/tmp
+TTYPath=/dev/tty7
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
+PAMName=login
+User={{ kiosk_user }}
+
+[Install]
+WantedBy=multi-user.target

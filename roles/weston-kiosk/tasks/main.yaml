@@ -1,0 +1,18 @@
+- name: Install wayland/weston packages
+  apt:
+    pkg: weston
+- name: Install weston config
+  template:
+    src: weston.ini
+    dest: /home/{{ kiosk_user }}/.config/weston.ini
+    owner: "{{ kiosk_user }}"
+    mode: 400
+- name: Install weston service
+  template:
+    src: weston.service
+    dest: /etc/systemd/system/weston.service
+- name: Enable weston service
+  ansible.builtin.systemd:
+    name: weston.service
+    enabled: yes
+    masked: no

@@ -1,0 +1,2 @@
+- name: Update GRUB config
+  shell: /usr/sbin/update-grub

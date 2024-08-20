@@ -1,0 +1,17 @@
+- name: Install chromium packages
+  apt:
+    pkg: chromium
+- name: Install browser kiosk service
+  template:
+    src: browser.service
+    dest: /etc/systemd/system/browser.service
+- name: Install browser policies
+  template:
+    src: kiosk.json
+    dest: /etc/chromium/policies/managed/kiosk.json
+- name: Enable browser kiosk service
+  ansible.builtin.systemd:
+    name: browser.service
+    enabled: yes
+    masked: no
+
