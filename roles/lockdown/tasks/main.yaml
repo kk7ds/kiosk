@@ -36,5 +36,5 @@
 - name: Enable root login over SSH
   ansible.builtin.lineinfile:
     path: /etc/ssh/sshd_config
-    regexp: '^PermitRoot.*'
+    regexp: '.*PermitRootLogin.*'
     line: 'PermitRootLogin yes'
