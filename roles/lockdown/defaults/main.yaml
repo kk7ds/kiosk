@@ -1,2 +1,3 @@
+kiosk_user: kiosk
 grub_user: admin
 grub_passwd: s3cret

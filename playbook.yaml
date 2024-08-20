@@ -2,6 +2,6 @@
   become: yes
   become_method: sudo
   roles:
+    - lockdown
     - weston-kiosk
     - chromium-kiosk
-    - lockdown

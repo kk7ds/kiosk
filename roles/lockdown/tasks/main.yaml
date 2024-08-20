@@ -13,3 +13,12 @@
     line: GRUB_TIMEOUT=0
     regexp: "^GRUB_TIMEOUT"
   notify: Update GRUB config
+- name: Create kiosk user
+  ansible.builtin.user:
+    name: "{{ kiosk_user }}"
+- name: Create kiosk user config directory
+  ansible.builtin.file:
+    path: "/home/{{ kiosk_user }}/.config"
+    state: directory
+    owner: "{{ kiosk_user }}"
+    mode: 750
