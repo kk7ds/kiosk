@@ -21,4 +21,4 @@
     path: "/home/{{ kiosk_user }}/.config"
     state: directory
     owner: "{{ kiosk_user }}"
-    mode: 750
+    mode: 0750

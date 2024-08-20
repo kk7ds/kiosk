@@ -1,6 +1,6 @@
 [Unit]
-Requires=system-weston.service
-After=system-weston.service
+Requires=weston.service
+After=weston.service
 After=network.target
 
 [Service]

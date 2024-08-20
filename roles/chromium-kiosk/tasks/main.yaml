@@ -5,6 +5,20 @@
   template:
     src: browser.service
     dest: /etc/systemd/system/browser.service
+- name: Create chromium policies directory
+  file:
+    path: /etc/chromium/policies
+    state: directory
+    mode: 0755
+    owner: root
+    group: root
+- name: Create chromium managed policies directory
+  file:
+    path: /etc/chromium/policies/managed
+    state: directory
+    mode: 0755
+    owner: root
+    group: root
 - name: Install browser policies
   template:
     src: kiosk.json
