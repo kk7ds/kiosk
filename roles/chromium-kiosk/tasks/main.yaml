@@ -28,5 +28,5 @@
     name: browser.service
     enabled: yes
     masked: no
-    daemon_reload: true
-    state: started
+#    daemon_reload: true
+#    state: started
